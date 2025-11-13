@@ -39,11 +39,13 @@ if "welcome_shown" not in st.session_state:
             unsafe_allow_html=True
         )
 
-    # Keep animation visible for 3 seconds
-    time.sleep(3)
+    # Keep animation visible for 5 seconds
+    time.sleep(5)
 
     # Clear the placeholder so the animation disappears
     anim_placeholder.empty()
+
+
 
 
 # ============================================
