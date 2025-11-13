@@ -80,7 +80,13 @@ st.sidebar.markdown(
 # ============================================
 @st.cache_resource
 def load_models_and_data():
-    MODEL_DIR = "../models"
+    # Base directory where app.py resides
+    BASE_DIR = os.path.dirname(__file__)
+    
+    # Models folder inside app/
+    MODEL_DIR = os.path.join(BASE_DIR, "models")
+    
+    # Load all ML models
     models_dict = {
         "Decision Tree": joblib.load(os.path.join(MODEL_DIR, "decision_tree_model.pkl")),
         "Random Forest": joblib.load(os.path.join(MODEL_DIR, "random_forest_model.pkl")),
@@ -88,14 +94,16 @@ def load_models_and_data():
         "SVM": joblib.load(os.path.join(MODEL_DIR, "svm_model.pkl")),
         "Naive Bayes": joblib.load(os.path.join(MODEL_DIR, "naive_bayes_model.pkl"))
     }
+    
+    # Load label encoder
     le_encoder = joblib.load(os.path.join(MODEL_DIR, "label_encoder.pkl"))
-
+    
+    # Load symptom columns
     with open(os.path.join(MODEL_DIR, "symptom_columns.json"), "r") as f:
         symptom_cols = [s.lower().strip() for s in json.load(f)]
+    
     return models_dict, le_encoder, symptom_cols
 
-models, le, symptom_columns = load_models_and_data()
-st.success("🚀 Ready to Diagnose!")
 
 # ============================================
 # 2️⃣ MULTI-LANGUAGE UI
