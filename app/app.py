@@ -21,8 +21,11 @@ from streamlit_lottie import st_lottie
 if "welcome_shown" not in st.session_state:
     st.session_state.welcome_shown = True
 
+    # Base directory
+    BASE_DIR = os.path.dirname(__file__)
+
     # Load animation
-    with open("welcome_animation.json", "r") as f:
+    with open(os.path.join(BASE_DIR, "welcome_animation.json"), "r") as f:
         welcome_animation = json.load(f)
 
     # Create a placeholder
@@ -31,14 +34,16 @@ if "welcome_shown" not in st.session_state:
     # Display animation inside placeholder
     with anim_placeholder.container():
         st_lottie(welcome_animation, height=300, key="welcome_lottie")
-        st.markdown("<h2 style='text-align:center; color:#0D47A1;'>👋Hello Welcome to My AI Health Assistant 🩺</h2>", unsafe_allow_html=True)
+        st.markdown(
+            "<h2 style='text-align:center; color:#0D47A1;'>👋Hello Welcome to My AI Health Assistant 🩺</h2>",
+            unsafe_allow_html=True
+        )
 
     # Keep animation visible for 3 seconds
     time.sleep(3)
 
     # Clear the placeholder so the animation disappears
     anim_placeholder.empty()
-
 
 
 # ============================================
