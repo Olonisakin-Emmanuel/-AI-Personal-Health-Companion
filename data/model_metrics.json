@@ -1,0 +1,27 @@
+{
+    "Decision Tree": {
+        "Accuracy": 1.0,
+        "Log Loss": 2.22e-16,
+        "MCC": 1.0
+    },
+    "Random Forest": {
+        "Accuracy": 1.0,
+        "Log Loss": 1.2471,
+        "MCC": 1.0
+    },
+    "Logistic Regression": {
+        "Accuracy": 1.0,
+        "Log Loss": 0.0227,
+        "MCC": 1.0
+    },
+    "SVM": {
+        "Accuracy": 1.0,
+        "Log Loss": "N/A",
+        "MCC": 1.0
+    },
+    "Naive Bayes": {
+        "Accuracy": 1.0,
+        "Log Loss": 2.22e-16,
+        "MCC": 1.0
+    }
+}

@@ -1,0 +1,5 @@
+# Ignore Streamlit secrets
+app/.streamlit/secrets.toml
+
+# Ignore all Jupyter notebook checkpoints
+**/.ipynb_checkpoints/
