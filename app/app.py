@@ -104,9 +104,10 @@ elif page == "💬 AI Health Chat":
     # -------------------------
     if "health_chat" not in st.session_state:
         st.session_state.health_chat = []
-
     if "ai_language" not in st.session_state:
         st.session_state.ai_language = "English"
+    if "awaiting_response" not in st.session_state:
+        st.session_state.awaiting_response = False
 
     # -------------------------
     # Language selection
@@ -128,7 +129,7 @@ elif page == "💬 AI Health Chat":
         st.session_state.health_chat = []
 
     # -------------------------
-    # Welcome messages per language
+    # Greetings
     # -------------------------
     greetings = {
         "English": "Hello! 👋 I am your AI Health Assistant. You can ask me health-related questions. How can I help you today?",
@@ -136,7 +137,6 @@ elif page == "💬 AI Health Chat":
         "Hausa": "Sannu! 👋 Ni ne Mataimakin Lafiya na AI. Kuna iya tambayar tambayoyi game da lafiya. Ta yaya zan iya taimaka muku a yau?",
         "Igbo": "Ndewo! 👋 Abụ m Onye Nrụzi Ahụike AI gị. Ị nwere ike ịjụ ajụjụ gbasara ahụike. Kedu ka m ga-esi nyere gị taa?"
     }
-
     if len(st.session_state.health_chat) == 0:
         st.session_state.health_chat.append({
             "role": "assistant",
@@ -147,15 +147,14 @@ elif page == "💬 AI Health Chat":
     # -------------------------
     # Quick suggested questions
     # -------------------------
-    suggestions_en = [
-        "What are symptoms of malaria?",
-        "What should I eat for healthy blood pressure?",
-        "How can I manage diabetes?",
-        "How much exercise is recommended daily?",
-        "How often should I check my sugar levels?"
-    ]
     suggestions_translated = {
-        "English": suggestions_en,
+        "English": [
+            "What are symptoms of malaria?",
+            "What should I eat for healthy blood pressure?",
+            "How can I manage diabetes?",
+            "How much exercise is recommended daily?",
+            "How often should I check my sugar levels?"
+        ],
         "Yoruba": [
             "Kí ni àwọn àmì àrùn ibà?",
             "Kini lati jẹ fun titẹ ẹjẹ to dara?",
@@ -188,9 +187,10 @@ elif page == "💬 AI Health Chat":
                 "content": suggestion,
                 "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
+            st.session_state.awaiting_response = True
 
     # -------------------------
-    # Display chat with timestamps
+    # Display chat
     # -------------------------
     for msg in st.session_state.health_chat:
         timestamp = msg.get("time", "")
@@ -212,18 +212,24 @@ elif page == "💬 AI Health Chat":
             "content": user_input,
             "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
-
-        typing_msg = st.chat_message("assistant")
-        typing_msg.write("AI is typing... ⏳")
-        st.session_state.health_chat.append({"role": "assistant", "content": "AI is typing...", "time": ""})
-        st.rerun()
+        st.session_state.awaiting_response = True
 
     # -------------------------
-    # Generate AI response (after rerun)
+    # Generate AI response with typing placeholder
     # -------------------------
-    if st.session_state.health_chat and st.session_state.health_chat[-1]["content"] == "AI is typing...":
+    if st.session_state.awaiting_response:
+        # Add "typing" message if not present
+        if not st.session_state.health_chat or st.session_state.health_chat[-1]["content"] != "AI is typing...":
+            st.session_state.health_chat.append({
+                "role": "assistant",
+                "content": "AI is typing... ⏳",
+                "time": ""
+            })
+            st.rerun()
+
+        # Generate AI reply
         client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        with st.spinner("Thinking..."):
+        with st.spinner("AI is thinking... ⏳"):
             reply = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[msg for msg in st.session_state.health_chat if msg["content"] != "AI is typing..."],
@@ -231,19 +237,20 @@ elif page == "💬 AI Health Chat":
             )
             bot_message = reply.choices[0].message.content
 
+        # Replace the "typing" message with the actual response
         st.session_state.health_chat[-1] = {
             "role": "assistant",
             "content": bot_message,
             "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
+        st.session_state.awaiting_response = False
         st.rerun()
 
     # -------------------------
-    # Download chat as PDF and TXT
+    # Download chat as PDF & TXT
     # -------------------------
     if st.session_state.health_chat:
         st.markdown("---")
-        
         # PDF
         pdf = FPDF()
         pdf.add_page()
@@ -258,12 +265,10 @@ elif page == "💬 AI Health Chat":
             pdf.multi_cell(0, 10, f"{role}: {content} ({timestamp})")
             pdf.ln(2)
 
-        pdf_buffer = BytesIO()
-        pdf.output(pdf_buffer)
-        pdf_buffer.seek(0)
+        pdf_bytes = pdf.output(dest="S").encode("latin1")
         st.download_button(
             label="📄 Download Conversation as PDF",
-            data=pdf_buffer,
+            data=pdf_bytes,
             file_name="ai_health_chat.pdf",
             mime="application/pdf"
         )
@@ -282,4 +287,3 @@ elif page == "💬 AI Health Chat":
             file_name="ai_health_chat.txt",
             mime="text/plain"
         )
-
