@@ -1,6 +1,8 @@
 # app.py — AI Personal Health Companion
 import streamlit as st
 import os
+from streamlit_lottie import st_lottie
+import json
 from openai import OpenAI
 from modules.symptom_checker import run_symptom_checker
 from modules.dashboard import show_dashboard
@@ -44,15 +46,14 @@ Always consult a qualified healthcare provider regarding any medical concerns.
 # HOME PAGE
 # -------------------------
 if page == "🏠 Home":
-    from streamlit_lottie import st_lottie
-    import json
-
     st.title("🩺 AI Personal Health Companion")
     st.subheader("Your AI-powered health assistant")
 
-    # Load Lottie animation
-    def load_lottie(file_path):
-        with open(file_path, "r") as f:
+    # Load Lottie animation with relative path
+    def load_lottie(filename):
+        base_path = os.path.dirname(__file__)  # ensures relative to app.py
+        file_path = os.path.join(base_path, filename)
+        with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
     lottie_animation = load_lottie("welcome_animation.json")
@@ -72,7 +73,6 @@ This app helps you:
 - ✅ Secure session-based logging
         """)
         st.success("Select a feature from the left sidebar to begin.")
-
 
 # -------------------------
 # SYMPTOM CHECKER
