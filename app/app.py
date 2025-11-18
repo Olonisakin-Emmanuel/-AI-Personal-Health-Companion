@@ -96,8 +96,6 @@ elif page == "📊 Dashboard":
 # AI HEALTH CHAT
 # -------------------------
 elif page == "💬 AI Health Chat":
-    
-
     st.title("💬 AI Health Chat Assistant")
     st.write("Ask any health-related question (not a medical diagnosis).")
 
@@ -119,7 +117,7 @@ elif page == "💬 AI Health Chat":
         lang_options,
         index=lang_options.index(st.session_state.ai_language),
         key="ai_lang_selector",
-        on_change=lambda: st.session_state.health_chat.clear()  
+        on_change=lambda: st.session_state.health_chat.clear()
     )
     st.session_state.ai_language = st.session_state.ai_lang_selector
 
@@ -249,16 +247,18 @@ elif page == "💬 AI Health Chat":
         # PDF
         pdf = FPDF()
         pdf.add_page()
-        font_path = r"C:\Users\Gbenga\Desktop\AI_Health_Companion\app\dejavu-fonts-ttf-2.37\ttf\DejaVuSans.ttf"
+        font_path = os.path.join(os.path.dirname(__file__), "fonts", "DejaVuSans.ttf")
         pdf.add_font("DejaVu", "", font_path, uni=True)
         pdf.set_font("DejaVu", "", 12)
         pdf.set_auto_page_break(auto=True, margin=15)
+
         for msg in st.session_state.health_chat:
             role = msg["role"].capitalize()
             content = msg["content"]
             timestamp = msg.get("time", "")
             pdf.multi_cell(0, 10, f"{role}: {content} ({timestamp})")
             pdf.ln(2)
+
         pdf_buffer = BytesIO()
         pdf.output(pdf_buffer)
         pdf_buffer.seek(0)
@@ -283,5 +283,4 @@ elif page == "💬 AI Health Chat":
             file_name="ai_health_chat.txt",
             mime="text/plain"
         )
-
 
