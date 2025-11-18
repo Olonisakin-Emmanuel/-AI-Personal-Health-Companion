@@ -247,10 +247,9 @@ elif page == "💬 AI Health Chat":
         # PDF
         pdf = FPDF()
         pdf.add_page()
-        font_path = os.path.join(os.path.dirname(__file__), "fonts", "DejaVuSans.ttf")
+        font_path = os.path.join(os.path.dirname(__file__), "fonts", "DejaVuSansMono.ttf")
         pdf.add_font("DejaVu", "", font_path, uni=True)
         pdf.set_font("DejaVu", "", 12)
-        pdf.set_auto_page_break(auto=True, margin=15)
 
         for msg in st.session_state.health_chat:
             role = msg["role"].capitalize()
