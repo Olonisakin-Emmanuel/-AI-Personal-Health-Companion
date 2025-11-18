@@ -1,72 +1,9 @@
 session_id,timestamp,symptoms,followup_answers,predicted_disease,confidence,risk,ai_tip
-b30fbc0f-71d5-40b9-878f-6b98f0e58833,2025-11-11 16:00:33,"cough, knee_pain, dry cough, shortness of breath, chest pain","{""dry cough"": true, ""shortness of breath"": true, ""chest pain"": true}",gerd,60.0,Medium,Avoid eating large meals or lying down immediately after eating to help prevent symptoms of GERD.
-759cf14a-869f-448d-a8fd-3fec84e38626,2025-11-11 16:01:17,cough,"{""dry cough"": false, ""shortness of breath"": false, ""chest pain"": false}",gerd,80.0,High,Avoid eating large meals before bedtime.
-759cf14a-869f-448d-a8fd-3fec84e38626,2025-11-11 16:01:37,eye pain,"{""dry cough"": false, ""shortness of breath"": false, ""chest pain"": false}",osteoarthristis,60.0,Medium,Stay active and maintain a healthy weight to reduce strain on your joints.
-725dba0b-38cb-445a-aee1-4b820da27f46,2025-11-11 16:01:42,eye pain,{},osteoarthristis,60.0,Medium,Stay active and maintain a healthy weight to reduce pressure on your joints.
-725dba0b-38cb-445a-aee1-4b820da27f46,2025-11-11 16:01:52,eye pain,{},osteoarthristis,60.0,Medium,Stay active and maintain a healthy weight to reduce strain on your joints.
-645f3024-c717-4a75-bb88-ed7366f3a2f8,2025-11-11 16:02:15,"fever, chills, headache","{""cough"": false, ""chills"": true, ""headache"": true}",malaria,60.0,Medium,Use insect repellent and sleep under a mosquito net to prevent malaria.
-645f3024-c717-4a75-bb88-ed7366f3a2f8,2025-11-11 16:02:35,"fever, chills, headache","{""cough"": false, ""chills"": true, ""headache"": true}",malaria,60.0,Medium,Use insect repellent and sleep under a mosquito net to prevent malaria.
-66db571a-5fbf-4ca6-9d7d-385485d0e32d,2025-11-11 16:02:52,"fever, cough","{""cough"": true, ""chills"": false, ""headache"": false}",bronchial asthma,80.0,High,Always carry your rescue inhaler with you and use it as prescribed by your doctor in case of an asthma attack.
-66db571a-5fbf-4ca6-9d7d-385485d0e32d,2025-11-11 16:03:01,"fever, cough","{""cough"": true, ""chills"": false, ""headache"": false}",bronchial asthma,80.0,High,"Avoid triggers such as smoke, dust, and strong odors to help manage bronchial asthma."
-47f9bb6b-630e-4364-a860-cf644b45089e,2025-11-11 16:03:18,dizziness,{},hypertension,40.0,Medium,Reduce your salt intake to help lower your blood pressure.
-4b904642-1150-4b6e-83b5-922683b30f24,2025-11-11 16:03:55,dizziness,{},AI Suggested,0,Low,"Possible diseases:
-1. Vertigo
-2. Meniere's disease
-3. Dehydration
+5b4ffcd2-b95f-457c-b0c0-02e3111fa1e5,2025-11-18 12:08:38,back_pain,{},cervical spondylosis,80.0,High,Practice good posture and avoid prolonged periods of sitting or standing in the same position.
+56044900-2fc1-4c80-b12f-52afc9127c83,2025-11-18 12:11:26,belly_pain,{},AI Suggested,0,Medium,"Possible diseases:
+1. Gastritis
+2. Irritable bowel syndrome
+3. Appendicitis
 
-Health tip:
-Stay hydrated by drinking plenty of water throughout the day to help prevent dizziness."
-4b904642-1150-4b6e-83b5-922683b30f24,2025-11-11 16:04:03,dizziness,{},AI Suggested,0,Low,"Possible diseases: 
-
-1. Vertigo
-2. Meniere's disease
-3. Dehydration
-
-Health tip: Make sure to stay hydrated by drinking plenty of water throughout the day to help prevent dizziness. If symptoms persist, consult with a healthcare professional."
-8983f300-2843-43a4-9201-41d188027359,2025-11-11 16:04:53,"cough, dry cough","{""dry cough"": true, ""shortness of breath"": false, ""chest pain"": false}",gerd,80.0,High,Avoid eating large meals or lying down right after eating to help prevent acid reflux symptoms.
-83bff04a-403a-41fa-ba6e-5a8d27ff108b,2025-11-11 16:08:26,acidity,{},gerd,60.0,Medium,Avoid eating large meals or lying down right after eating to help prevent acid reflux.
-83bff04a-403a-41fa-ba6e-5a8d27ff108b,2025-11-11 16:08:34,,{},AI Suggested,0,Low,"Possible diseases: 
-1. Common cold 
-2. Influenza 
-
-Health tip: Get plenty of rest, stay hydrated, and wash your hands frequently to prevent spreading germs."
-83bff04a-403a-41fa-ba6e-5a8d27ff108b,2025-11-11 16:08:41,,{},AI Suggested,0,Low,"Possible diseases: 
-1. Common cold 
-2. Influenza 
-3. Allergic rhinitis 
-
-Health tip: Get plenty of rest, stay hydrated, and wash your hands frequently to prevent the spread of germs."
-889319ff-f525-4619-b121-b798da2e71bb,2025-11-11 16:23:01,"fever, chills, headache","{""cough"": false, ""chills"": true, ""headache"": true}",malaria,60.0,Medium,Use insect repellent and sleep under a mosquito net to prevent malaria.
-5cf2ef59-fc55-4801-b1dc-3332e33f0b05,2025-11-12 14:27:51,dizziness,{},AI Suggested,0,Low,"Possible diseases:
-1. Vertigo
-2. Meniere's disease
-3. Dehydration
-
-Health tip:
-If you are experiencing dizziness, make sure to stay hydrated by drinking plenty of water throughout the day. If the dizziness persists, it is important to consult with a healthcare professional for further evaluation and treatment."
-5cf2ef59-fc55-4801-b1dc-3332e33f0b05,2025-11-12 14:28:12,,{},AI Suggested,0,Low,"Possible diseases:
-1. Common cold
-2. Flu
-3. Sinus infection
-
-Health tip:
-Get plenty of rest, stay hydrated, and consider using over-the-counter medications to help alleviate symptoms. If symptoms persist or worsen, consult a healthcare professional."
-0fcc2a8b-1f36-4591-bbca-b5883a19d8c5,2025-11-12 14:28:45,"fever, chills, headache","{""cough"": false, ""chills"": true, ""headache"": true}",malaria,60.0,Medium,Use insect repellent and sleep under a mosquito net to prevent malaria.
-0fcc2a8b-1f36-4591-bbca-b5883a19d8c5,2025-11-12 14:28:52,"fever, chills, headache","{""cough"": false, ""chills"": true, ""headache"": true}",malaria,60.0,Medium,Use insect repellent and sleep under a mosquito net to prevent malaria.
-d25f724c-9530-408e-8c9f-e7f249169234,2025-11-12 14:29:02,dizziness,{},AI Suggested,0,Low,"Possible diseases:
-1. Vertigo
-2. Meniere's disease
-3. Dehydration
-
-Health tip:
-Stay hydrated by drinking plenty of water throughout the day to help prevent dizziness."
-21e0bc84-18fb-47d6-8dd7-adc373fdea9a,2025-11-12 14:34:15,dizziness,{},AI Suggested,0,Low,"Possible diseases: dehydration, inner ear infection, vertigo
-
-Health tip: Stay hydrated by drinking plenty of water throughout the day to help prevent dizziness. If symptoms persist, consult a healthcare professional for further evaluation and treatment."
-730da414-4b11-4633-bad1-815d780fccca,2025-11-12 14:38:30,dizziness,{},AI Suggested,0,Medium,"Possible diseases:
-1. Vertigo
-2. Meniere's disease
-3. Dehydration
-
-Health tip: Make sure to drink plenty of water throughout the day to stay hydrated and prevent dizziness. If symptoms persist, consult a healthcare professional for further evaluation."
-281a444a-0ef4-4da1-813e-16c64d9e6167,2025-11-12 14:41:54,"cough, dry cough, chest pain","{""dry cough"": true, ""shortness of breath"": false, ""chest pain"": true}",gerd,80.0,High,"Avoid trigger foods and drinks that can worsen acid reflux, such as spicy foods, citrus fruits, and caffeine."
+Health tip: It is important to stay hydrated and avoid foods that may irritate your stomach, such as spicy or greasy foods. If the pain persists or worsens, seek medical attention."
+c225b488-3789-4099-ae61-e80e5ff99f71,2025-11-18 16:01:01,"fever, cough, chills, headache","{""cough"": true, ""chills"": true, ""headache"": true}",bronchial asthma,80.0,High,"Avoid exposure to smoke, pollution, and allergens to help manage bronchial asthma."
