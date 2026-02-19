@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import os
 import plotly.express as px
-
+import json 
 CSV_FILE = "session_logs.csv"
 
 def show_dashboard():
@@ -60,7 +60,7 @@ def show_dashboard():
     <h4 style="color:#0D47A1;">Quick Summary</h4>
     <ul>
         <li><b>Symptoms Count:</b> {len(session_data['symptoms'].split(','))}</li>
-        <li><b>Follow-up Questions Answered:</b> {len(eval(session_data['followup_answers']))}</li>
+        len(json.loads(session_data['followup_answers']))
         <li><b>Predicted Disease:</b> {session_data['predicted_disease']}</li>
     </ul>
     </div>
