@@ -1,6 +1,6 @@
 # 🩺 AI Personal Health Companion
 
-An AI-powered health assistant that predicts possible illnesses from symptoms, analyzes medical reports, provides multilingual AI health chat support, and visualizes prediction history through an interactive dashboard.
+An intelligent hybrid AI healthcare assistant that combines Machine Learning classification with LLM-powered reasoning to predict illnesses, analyze medical reports, provide multilingual AI health support, and visualize prediction history through an interactive dashboard.
 
 🌍 **Live App:**  
 👉 https://olonisakin-emmanuel-ai-partner.streamlit.app/
@@ -9,12 +9,13 @@ An AI-powered health assistant that predicts possible illnesses from symptoms, a
 
 ## 🚀 Features
 
-- 🤖 Symptom-based disease prediction
+- 🤖 Hybrid ML-based symptom disease prediction
+- 🧠 Confidence-based AI fallback system
 - 📊 Interactive predictions dashboard
-- 💬 AI Health Chat Assistant
+- 💬 Multilingual AI Health Chat Assistant
 - 📄 Medical Report Analyzer (PDF/TXT)
-- 🌍 Multilingual support (English, Yoruba, Hausa, Igbo)
-- 🔐 Session-based logging
+- 🌍 Supports English, Yoruba, Hausa & Igbo
+- 🔐 Secure session-based logging
 - ☁️ Deployed on Streamlit Community Cloud
 
 ---
@@ -44,17 +45,33 @@ An AI-powered health assistant that predicts possible illnesses from symptoms, a
 ![Medical Report Analyzer](assets/medical_report.png)
 
 ---
+## 🧠 Hybrid AI Architecture
+
+The Symptom Checker uses a hybrid ML–LLM architecture:
+
+1️⃣ A trained Scikit-learn Machine Learning model predicts possible diseases from selected symptoms.
+2️⃣ The system calculates a confidence score and assigns a risk level (Low, Medium, High).
+3️⃣ If the risk is Medium or High, the ML prediction result is prioritized.
+4️⃣ If the risk is Low, the system automatically falls back to the OpenAI API to generate intelligent health guidance and recommendations.
+
+This architecture combines:
+
+- Structured ML classification
+- Confidence-based risk assessment
+- AI-powered natural language reasoning
+- Fallback orchestration logic
 
 ## 🧠 How It Works
 
 ### 1️⃣ Symptom Checker
 Users select symptoms or enter custom symptoms.  
 The system:
-- Processes symptoms
-- Predicts possible disease
-- Calculates confidence score
-- Assigns risk level
-- Provides AI health tips
+- Encodes selected symptoms into model-ready features
+- Uses a trained Scikit-learn classifier for disease prediction
+- Calculates prediction confidence
+- Assigns dynamic risk level (Low / Medium / High)
+- Triggers AI fallback logic when risk is low
+
 
 ---
 
@@ -81,11 +98,11 @@ The system:
 ## 🛠️ Tech Stack
 
 - **Python**
+- **Scikit-learn**
 - **Streamlit**
+- **OpenAI API**
 - **Pandas**
 - **Plotly**
-- **OpenAI API**
-- **Scikit-learn**
 - **PyPDF2**
 
 ---
