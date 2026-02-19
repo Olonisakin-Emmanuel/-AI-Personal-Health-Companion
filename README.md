@@ -50,8 +50,11 @@ An intelligent hybrid AI healthcare assistant that combines Machine Learning cla
 The Symptom Checker uses a hybrid ML–LLM architecture:
 
 1️⃣ A trained Scikit-learn Machine Learning model predicts possible diseases from selected symptoms.
+
 2️⃣ The system calculates a confidence score and assigns a risk level (Low, Medium, High).
+
 3️⃣ If the risk is Medium or High, the ML prediction result is prioritized.
+
 4️⃣ If the risk is Low, the system automatically falls back to the OpenAI API to generate intelligent health guidance and recommendations.
 
 This architecture combines:
