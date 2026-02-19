@@ -10,6 +10,7 @@ from modules.report_analyzer import analyze_medical_report
 import datetime
 from streamlit_lottie import st_lottie
 
+
 # -------------------------
 # Page Config
 # -------------------------
