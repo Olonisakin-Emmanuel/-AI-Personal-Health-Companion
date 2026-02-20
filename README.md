@@ -2,6 +2,8 @@
 
 An intelligent hybrid AI healthcare assistant that combines Machine Learning classification with LLM-powered reasoning to predict illnesses, analyze medical reports, provide multilingual AI health support, and visualize prediction history through an interactive dashboard.
 
+This project demonstrates end-to-end AI system design, from model training and confidence-based orchestration logic to cloud deployment and multilingual AI integration.
+
 🌍 **Live App:**  
 👉 https://olonisakin-emmanuel-ai-partner.streamlit.app/
 
@@ -95,7 +97,7 @@ The system:
 ### 4️⃣ Medical Report Analyzer
 - Upload PDF or TXT medical reports
 - AI summarizes key findings in simple language
-
+- 
 ---
 
 ## 🛠️ Tech Stack
@@ -117,7 +119,7 @@ git clone https://github.com/Olonisakin-Emmanuel/AI-Personal-Health-Companion.gi
 cd AI-Personal-Health-Companion
 pip install -r requirements.txt
 streamlit run app/app.py
-
+```
 ---
 
 ## 🔑 Environment Variables
