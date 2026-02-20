@@ -118,3 +118,85 @@ cd AI-Personal-Health-Companion
 pip install -r requirements.txt
 streamlit run app/app.py
 
+---
+
+## 🔑 Environment Variables
+
+This application requires an OpenAI API key for:
+
+- AI Health Chat  
+- Medical Report Analyzer  
+- AI fallback logic  
+
+### Running Locally
+
+Create a `.env` file in the root directory and add:
+
+```bash
+OPENAI_API_KEY=your_api_key_here
+```
+
+The app reads it using:
+
+```python
+import os
+api_key = os.getenv("OPENAI_API_KEY")
+```
+
+---
+
+### Running on Streamlit Community Cloud
+
+1. Go to your deployed app  
+2. Click **Manage App**  
+3. Open **Settings → Secrets**  
+4. Add:
+
+```bash
+OPENAI_API_KEY = "your_api_key_here"
+```
+
+---
+
+## 📂 Project Structure
+
+```
+AI-Personal-Health-Companion/
+│
+├── app/
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── session_logs.csv
+│   ├── welcome_animation.json
+│   │
+│   ├── models/
+│   └── modules/
+│       ├── symptom_checker.py
+│       ├── dashboard.py
+│       └── report_analyzer.py
+│
+├── assets/
+├── data/
+├── notebooks/
+├── results/
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚠️ Disclaimer
+
+This application is for educational and informational purposes only.  
+It is not a substitute for professional medical advice, diagnosis, or treatment.  
+Always consult a qualified healthcare provider regarding medical concerns.
+
+---
+
+## 👨‍💻 Author
+
+**Olonisakin Emmanuel Oluwagbenga**  
+AI & Machine Learning Engineer  
+📍 Nigeria  
+
