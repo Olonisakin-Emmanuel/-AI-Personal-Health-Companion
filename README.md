@@ -164,21 +164,45 @@ OPENAI_API_KEY = "your_api_key_here"
 AI-Personal-Health-Companion/
 │
 ├── app/
+│   ├── models/
+│   │   ├── decision_tree_model.pkl
+│   │   ├── random_forest_model.pkl
+│   │   ├── logistic_regression_model.pkl
+│   │   ├── svm_model.pkl
+│   │   ├── naive_bayes_model.pkl
+│   │   ├── label_encoder.pkl
+│   │   └── symptom_columns.json
+│   │
+│   ├── modules/
+│   │   ├── symptom_checker.py
+│   │   ├── dashboard.py
+│   │   └── report_analyzer.py
+│   │
 │   ├── app.py
 │   ├── requirements.txt
 │   ├── session_logs.csv
-│   ├── welcome_animation.json
-│   │
-│   ├── models/
-│   └── modules/
-│       ├── symptom_checker.py
-│       ├── dashboard.py
-│       └── report_analyzer.py
+│   └── welcome_animation.json
 │
 ├── assets/
+│   ├── chat.png
+│   ├── dashboard.png
+│   ├── home.png
+│   ├── medical_report.png
+│   └── symptom_checker.png
+│
 ├── data/
+│   ├── dataset.csv
+│   ├── Symptom-severity.csv
+│   ├── symptom_Description.csv
+│   ├── symptom_precaution.csv
+│   ├── disease_label_mapping.json
+│   └── model_metrics.json
+│
 ├── notebooks/
+│   └── project.ipynb
+│
 ├── results/
+│   └── model_metrics.json
 │
 ├── .gitignore
 └── README.md
