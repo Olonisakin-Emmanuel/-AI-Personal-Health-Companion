@@ -1,6 +1,6 @@
 # 🩺 AI Personal Health Companion
 
-An intelligent hybrid AI healthcare assistant that combines Machine Learning classification with LLM-powered reasoning to predict illnesses, analyze medical reports, provide multilingual AI health support, and visualize prediction history through an interactive dashboard.
+An intelligent hybrid AI healthcare assistant that combines Machine Learning classification with LLM-powered reasoning to predict illnesses, analyze medical reports, provide multilingual AI health support and visualize prediction history through an interactive dashboard.
 
 This project demonstrates end-to-end AI system design, from model training and confidence-based orchestration logic to cloud deployment and multilingual AI integration.
 
