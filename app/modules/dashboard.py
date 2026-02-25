@@ -1,4 +1,6 @@
+# -------------------------
 # dashboard.py
+# -------------------------
 import streamlit as st
 import pandas as pd
 import os
@@ -17,15 +19,18 @@ def show_dashboard():
     if df_logs.empty:
         st.warning("No prediction records available.")
         return
-
+    # -------------------------
     # Show last 5 predictions
+    # -------------------------
     last5 = df_logs.tail(5).sort_values(by="timestamp", ascending=False).reset_index(drop=True)
     last5["session_label"] = [f"Prediction {i+1}" for i in range(len(last5))]
 
     selected_session = st.selectbox("Select a prediction to view:", last5["session_label"])
     session_data = last5[last5["session_label"] == selected_session].iloc[0]
-
+    
+    # -------------------------        
     # Prediction Details
+    # -------------------------
     st.markdown("### 🩺 Prediction Details")
     col1, col2 = st.columns(2)
     with col1:
@@ -38,8 +43,9 @@ def show_dashboard():
         st.write(f"**Risk:** {session_data['risk']}")
         if 'ai_tip' in session_data and pd.notna(session_data['ai_tip']):
             st.info(f"💡 Health Tip: {session_data['ai_tip']}")
-
+    # -------------------------
     # Confidence & Risk Chart
+    # -------------------------
     df_graph = pd.DataFrame({
         "Metric": ["Confidence", "Risk Score"],
         "Value": [
@@ -52,8 +58,9 @@ def show_dashboard():
                  title="Confidence vs Risk", height=400)
     fig.update_traces(textposition='outside')
     st.plotly_chart(fig, use_container_width=True)
-
+    # -------------------------
     # Quick Summary Card
+    # -------------------------
     st.markdown("---")
     st.markdown(f"""
     <div style="padding:10px; border-radius:8px; background-color:#E3F2FD;">
@@ -65,8 +72,9 @@ def show_dashboard():
     </ul>
     </div>
     """, unsafe_allow_html=True)
-
+    # -------------------------
     # Analytics: Top Diseases
+    # -------------------------
     st.markdown("---")
     st.markdown("### 📈 Top Predicted Diseases")
     top_diseases = df_logs['predicted_disease'].value_counts().head(5)
