@@ -1,4 +1,6 @@
+# -------------------------
 # report_analyzer.py
+# -------------------------
 import streamlit as st
 from openai import OpenAI
 import os
@@ -29,8 +31,9 @@ def analyze_medical_report():
 
         if content:
             st.write("✅ Report successfully loaded. Generating insights...")
-
+            # -------------------------
             # Initialize OpenAI
+            # -------------------------
             client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
             try:
                 prompt = f"Analyze the following medical report and provide a concise summary with key findings, in simple language:\n\n{content}"
