@@ -1,4 +1,6 @@
+# ---------------------------------------------
 # app.py — AI Personal Health Companion
+# ---------------------------------------------
 import streamlit as st
 import os
 import json
